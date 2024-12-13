@@ -6,6 +6,10 @@
     
     <title>Laravel 10 vite with react</title>
     
+    <script>
+        window.REACT_APP_API_URL = "{{ config('app.react.api_url') }}";
+    </script>
+
     @viteReactRefresh
     @vite('resources/js/app.jsx')
 </head>

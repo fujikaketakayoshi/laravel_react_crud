@@ -3,19 +3,21 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import toastr from "toastr";
 
+axios.defaults.withCredentials = true; // クッキーをリクエストに含める
+
 const Posts = () => {
 	const [posts, setPosts] = useState([]);
 	
 	//delete post
 	async function deletePost(id) {
-		let response = await axios.get(`http://localhost:8000/api/posts/delete/${id}`);
+		let response = await axios.get(`${window.REACT_APP_API_URL}/posts/delete/${id}`);
 		toastr.success(response.data.message);
 		getPosts();
 	}
 	
 	//fetch all posts
 	async function getPosts() {
-		let response = await axios.get(`http://localhost:8000/api/posts`);
+		let response = await axios.get(`${window.REACT_APP_API_URL}/posts`);
 		let postItems = response.data.posts;
 		setPosts(postItems);
 	}

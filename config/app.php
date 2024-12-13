@@ -184,5 +184,10 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+    
+    
+    'react' => [
+        'api_url' => env('REACT_APP_API_URL'),
+    ],
 
 ];
