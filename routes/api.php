@@ -22,9 +22,6 @@ Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth:sanctum')->group(function () {
-	Route::get('/posts/delete/{id}', [PostController::class, 'delete']);
-	Route::post('/posts/save', [PostController::class, 'save']);
-	Route::post('/posts/update', [PostController::class, 'update']);
 	Route::get('user', function (Request $request) {
 		return $request->user();
 	});
@@ -32,3 +29,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/get/{id}', [PostController::class, 'get']);
+Route::get('/posts/delete/{id}', [PostController::class, 'delete']);
+Route::post('/posts/save', [PostController::class, 'save']);
+Route::post('/posts/update', [PostController::class, 'update']);

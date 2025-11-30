@@ -29,7 +29,7 @@ const EditPost = () => {
 	
 	async function updatePost() {
 		try {
-			let data = await api.post(`${API_URL}/posts/update`, post);
+			let data = await api.post(`/posts/update`, post);
 			setPost({ title: "", description: ""});
 			getPost();
 			toastr.success('Post updated Successfully');
