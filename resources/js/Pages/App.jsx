@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Posts from "./Post/Posts";
+import PostsPage from "./Post/PostsPage";
 import CreatePost from "./Post/CreatePost";
 import EditPost from "./Post/EditPost";
 import Auth from "./Auth/Auth";
@@ -10,7 +10,7 @@ const App = () => {
 		<>
 			<BrowserRouter>
 				<Routes>
-						<Route exact path="/" element={<Posts />}></Route>
+						<Route exact path="/" element={<PostsPage />}></Route>
 						<Route
 							exact
 							path="/create-post"
