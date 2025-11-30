@@ -2,6 +2,8 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 
 const PostRow = ({ post, index, onDelete }) => {
+    console.log("🔁 PostRow 再描画:", post.id);
+
     return (
         <tr>
         <td>{index + 1}</td>
@@ -22,4 +24,5 @@ const PostRow = ({ post, index, onDelete }) => {
     );
 };
 
-export default memo(PostRow);
+export default PostRow;
+// export default memo(PostRow);

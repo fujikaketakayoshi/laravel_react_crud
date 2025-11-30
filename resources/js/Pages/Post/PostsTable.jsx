@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import PostRow from "./PostRow";
 
 const PostsTable = ({ posts, onDelete }) => {
+    console.log("🔁 PostsTable 再描画");
+
     return (
         <div className="container mt-2">
         <div className="card">
@@ -42,4 +44,5 @@ const PostsTable = ({ posts, onDelete }) => {
     );
 };
 
-export default memo(PostsTable);
+export default PostsTable;
+// export default memo(PostsTable);

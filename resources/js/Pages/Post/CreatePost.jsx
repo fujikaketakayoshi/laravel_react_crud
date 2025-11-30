@@ -1,11 +1,8 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import toastr from "toastr";
 
 import api from "../../api/axios";
-
-axios.defaults.withCredentials = true; // クッキーをリクエストに含める
 
 const CreatePost = () => {
 	const [post, setPost] = useState({ title: "", description: ""});

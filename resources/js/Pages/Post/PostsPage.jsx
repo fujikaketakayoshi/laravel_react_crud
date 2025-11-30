@@ -5,6 +5,8 @@ import PostsTable from "./PostsTable";
 import api from "../../api/axios";
 
 const PostsPage = () => {
+	console.log("🔁 PostsPage 再描画");
+
 	const [posts, setPosts] = useState([]);
 
 	const getPosts = useCallback(async () => {
@@ -29,6 +31,7 @@ const PostsPage = () => {
 
 
 	useEffect(() => {
+		// console.log("🔹 useEffect getPosts 呼び出し");
 		getPosts();
 	}, []);
 
