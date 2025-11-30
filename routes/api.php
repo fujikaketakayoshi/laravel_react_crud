@@ -25,10 +25,10 @@ Route::middleware('auth:sanctum')->group(function () {
 	Route::get('/posts/delete/{id}', [PostController::class, 'delete']);
 	Route::post('/posts/save', [PostController::class, 'save']);
 	Route::post('/posts/update', [PostController::class, 'update']);
-	Route::get('/posts/get/{id}', [PostController::class, 'get']);
 	Route::get('user', function (Request $request) {
 		return $request->user();
 	});
 });
 
 Route::get('/posts', [PostController::class, 'index']);
+Route::get('/posts/get/{id}', [PostController::class, 'get']);

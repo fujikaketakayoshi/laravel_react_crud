@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import toastr from "toastr";
 
+import api from "../../api/axios";
+
 axios.defaults.withCredentials = true; // クッキーをリクエストに含める
 
 const EditPost = () => {
@@ -11,12 +13,7 @@ const EditPost = () => {
 	let params = useParams();
 	let id = params.id;
 	async function getPost() {
-		const config = {
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
-		let data = await axios.get(`${window.REACT_APP_API_URL}/posts/get/${id}`, config);
+		let data = await api.get(`/posts/get/${id}`);
 		setPost(data.data.post);
 	}
 	
@@ -32,7 +29,7 @@ const EditPost = () => {
 	
 	async function updatePost() {
 		try {
-			let data = await axios.post(`${window.REACT_APP_API_URL}/posts/update`, post);
+			let data = await api.post(`${API_URL}/posts/update`, post);
 			setPost({ title: "", description: ""});
 			getPost();
 			toastr.success('Post updated Successfully');

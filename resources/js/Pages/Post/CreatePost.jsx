@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import toastr from "toastr";
 
+import api from "../../api/axios";
+
 axios.defaults.withCredentials = true; // クッキーをリクエストに含める
 
 const CreatePost = () => {
@@ -14,7 +16,7 @@ const CreatePost = () => {
 	}
 	async function savePost(){
 		try {
-			let data = await axios.post(`http://localhost:8000/api/posts/save`, post);
+			let data = await api.post(`/posts/save`, post);
 			setPost({ title: "", description: ""});
 			toastr.success('Post saved Successfully')
 		} catch (error) {
